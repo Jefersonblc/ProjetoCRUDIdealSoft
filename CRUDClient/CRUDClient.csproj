@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="1.2.0" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.22" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Polly" Version="7.2.1" />
+    <PackageReference Include="RestSharp" Version="105.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Swagger.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Swagger.json</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Swagger.json">
+      <Generator>AutoRestCodeGenerator</Generator>
+      <LastGenOutput>Swagger.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
